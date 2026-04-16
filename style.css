@@ -1,9 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
 
 body {
   font-family: "Plus Jakarta Sans", sans-serif;
-  background-color: #f3f4f6;
+  background-color: #f8fafc; /* Slate 50 */
+  -webkit-font-smoothing: antialiased;
 }
-.form-group {
-  margin-bottom: 1.25rem;
+
+/* Modern input styling overrides for webkit/mobile */
+input[type="text"],
+input[type="url"],
+input[type="tel"],
+textarea {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* Custom scrollbar for textareas */
+textarea::-webkit-scrollbar {
+  width: 8px;
+}
+textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+textarea::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 20px;
 }
