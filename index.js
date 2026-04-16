@@ -48,7 +48,7 @@ document.getElementById("requestForm").addEventListener("submit", function (e) {
   const pjWA = document.getElementById("pjWA").value;
 
   // Format Pesan WhatsApp Sesuai Template
-  const message = `Halo Tim Kominfo, kami dari Divisi Komdigi ingin merequest desain pamflet/poster dengan detail berikut:
+  const message = `Halo Tim Komdigi, kami dari Divisi Komdigi ingin merequest desain pamflet/poster dengan detail berikut:
 
 1. *Nama Acara/Kegiatan:* ${namaAcara}
 2. *Tanggal Posting:* ${tglPosting}
