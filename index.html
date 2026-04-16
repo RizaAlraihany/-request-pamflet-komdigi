@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Pamflet - Divisi Komdigi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">   
+</head>
+<body class="bg-gray-50 min-h-screen py-10 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
+        
+        <!-- Header -->
+        <div class="bg-blue-600 px-8 py-6 text-white flex items-center justify-between">
+            <div>
+                <h1 class="text-2xl font-bold flex items-center gap-2">
+                    <i class="fas fa-paint-brush"></i> Form Request Pamflet
+                </h1>
+                <p class="text-blue-100 mt-1 text-sm">Divisi Komdigi - Isi form ini untuk request desain ke tim Komdigi</p>
+            </div>
+            <div class="hidden sm:block">
+                <i class="fas fa-bullhorn text-4xl opacity-80"></i>
+            </div>
+        </div>
+
+        <!-- Form Content -->
+        <form id="requestForm" class="px-8 py-6">
+            
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6 rounded-r-md">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <i class="fas fa-exclamation-triangle text-yellow-400"></i>
+                    </div>
+                    <div class="ml-3">
+                        <p class="text-sm text-yellow-700 font-medium">
+                            Perhatian: Revisi maksimal 1x. Lebih dari itu kena charge kopi untuk tim Komdigi ☕
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- 1. Nama Acara -->
+                <div class="form-group md:col-span-2">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">1. Nama Acara/Kegiatan <span class="text-red-500">*</span></label>
+                    <input type="text" id="namaAcara" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Contoh: Webinar AI Masa Depan">
+                </div>
+
+                <!-- 2. Tanggal Posting -->
+                <div class="form-group">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">2. Tanggal Posting <span class="text-red-500">*</span></label>
+                    <input type="date" id="tanggalPosting" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition">
+                </div>
+
+                <!-- 7. Deadline Jadi (Auto H-3) -->
+                <div class="form-group">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">7. Deadline Jadi (Otomatis H-3) <span class="text-red-500">*</span></label>
+                    <input type="date" id="deadlineJadi" required class="w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" help="Tulis H-3 dari tanggal posting">
+                    <p class="text-xs text-gray-500 mt-1">Otomatis terisi 3 hari sebelum Tanggal Posting.</p>
+                </div>
+
+                <!-- 3. Caption Singkat -->
+                <div class="form-group md:col-span-2">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">3. Caption Singkat <span class="text-red-500">*</span></label>
+                    <textarea id="captionSingkat" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Tulis caption yang mau dimasukin ke pamflet/poster. Max 2-3 kalimat"></textarea>
+                </div>
+
+                <!-- 4. Info Wajib di Pamflet -->
+                <div class="form-group md:col-span-2 border border-gray-200 p-4 rounded-xl bg-gray-50">
+                    <label class="block text-base font-bold text-gray-800 mb-3 border-b pb-2">4. Info Wajib di Pamflet</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Hari, Tanggal</label>
+                            <input type="text" id="infoTanggal" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Cth: Senin, 17 Agustus 2026">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Jam Mulai & Selesai</label>
+                            <div class="flex items-center gap-2">
+                                <input type="time" id="infoJamMulai" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                                <span class="text-gray-500 font-medium">-</span>
+                                <input type="time" id="infoJamSelesai" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                            </div>
+                            <p class="text-xs text-gray-500 mt-1">Kosongkan jam selesai jika waktu tentatif/opsional.</p>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Tempat / Link</label>
+                            <input type="text" id="infoTempat" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="Cth: Zoom / Ruang Aula">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Contact Person (CP)</label>
+                            <textarea id="infoCP" rows="2" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition" placeholder="Cth: 0812-3456-7890 (Budi)&#10;0812-9876-5432 (Ani)"></textarea>
+                            <p class="text-xs text-gray-500 mt-1">Gunakan baris baru (enter) jika contact person lebih dari satu.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Lampiran -->
+                <div class="form-group md:col-span-2">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">5. Lampiran (Foto/Logo Mentahan HD) <span class="text-red-500">*</span></label>
+                    <input type="url" id="lampiran" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Masukkan Link Google Drive yang berisi foto/logo">
+                    <p class="text-xs text-gray-500 mt-1">Anda juga dapat mengirimkan file/foto secara langsung ke chat WhatsApp setelah menekan tombol kirim di bawah.</p>
+                </div>
+
+                <!-- 6. Referensi Desain -->
+                <div class="form-group md:col-span-2">
+                    <label class="block text-sm font-semibold text-gray-700 mb-1">6. Referensi Desain (Opsional)</label>
+                    <input type="url" id="referensi" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition" placeholder="Masukkan Link/contoh gaya yang dimau (Pinterest, IG, dll)">
+                </div>
+
+                <!-- 8. PJ Divisi -->
+                <div class="form-group md:col-span-2 border border-blue-100 p-4 rounded-xl bg-blue-50">
+                    <label class="block text-base font-bold text-blue-800 mb-3 border-b border-blue-200 pb-2">8. PJ Divisi (Penanggung Jawab)</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                            <input type="text" id="pjNama" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">No WhatsApp (Fast Response)</label>
+                            <input type="tel" id="pjWA" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500" placeholder="08...">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-8 flex items-center justify-end border-t pt-6 border-gray-200 gap-4">
+                <button type="button" onclick="document.getElementById('requestForm').reset()" class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition">
+                    Reset Form
+                </button>
+                <button type="submit" class="px-6 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium shadow-lg hover:shadow-xl transition flex items-center gap-2">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    Kirim Request ke WA
+                </button>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="index.js">
+        
+    </script>
+</body>
+</html>
